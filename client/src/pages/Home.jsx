@@ -1,5 +1,6 @@
 import axios from "axios"
 import { useEffect, useState } from "react"
+import PostDetails from "./PostDetails"
 
 const Home = () => {
   const [data, setData] = useState([])
@@ -13,17 +14,7 @@ const Home = () => {
 
       <ul>
         {data && data.map((post) => (
-          <li key={post.id}>
-            <div className="title">
-              <h1>{post.title}</h1>
-            </div>
-            <div className="body">
-              <p>{post.postText}</p>
-            </div>
-            <div className="footer">
-              <p>{post.userName}</p>
-            </div>
-          </li>
+          <PostDetails key={post.id} title={post.title} id={post.id} postTitle={post.postTitle} userName={post.userName}/>
         ))}
       </ul>
     </div>
