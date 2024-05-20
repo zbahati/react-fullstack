@@ -4,7 +4,11 @@ const {Posts} = require("../models")
 const createPost = async(req, res) => {
     const post = req.body;
     await Posts.create(post);
-    res.json(post)
+    res.status(201).json({
+        message: "Posts created",
+        success: true,
+        data: post
+    })
 }
 
 // get all posts
